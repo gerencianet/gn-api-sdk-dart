@@ -1,6 +1,6 @@
 name: gerencianet
 description: A dart library for integration of your backend with the payment services provided by Gerencianet.
-version: 0.0.1
+version: 1.0.0
 homepage: 
 
 environment:

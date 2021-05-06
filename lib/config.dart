@@ -1,7 +1,7 @@
 import 'package:gerencianet/constants.dart';
 
 class Config {
-  static final String version = "0.0.1";
+  static final String version = "1.0.0";
 
   static options(Map options) {
     dynamic conf = {};
