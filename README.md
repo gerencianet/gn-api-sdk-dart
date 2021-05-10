@@ -5,9 +5,6 @@
 SDK for Gerencianet Pagamentos' API.
 For more informations about parameters and values, please refer to [Gerencianet](http://gerencianet.com.br) documentation.
 
-[![Build Status](https://travis-ci.org/gerencianet/gn-api-sdk-dart.svg)](https://travis-ci.org/gerencianet/gn-api-sdk-php)
-[![Code Climate](https://codeclimate.com/github/gerencianet/gn-api-sdk-dart/badges/gpa.svg)](https://codeclimate.com/github/gerencianet/gn-api-sdk-dart)
-[![Test Coverage](https://codeclimate.com/github/gerencianet/gn-api-sdk-dart/badges/coverage.svg)](https://codeclimate.com/github/gerencianet/gn-api-sdk-dart/coverage)
 
 ## Installation
 To use this plugin, add gerencianet as [a dependency in your pubspec.yaml file.](https://flutter.dev/docs/development/packages-and-plugins/using-packages)
