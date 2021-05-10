@@ -51,6 +51,9 @@ class Request {
 
     HttpClientResponse response = await request.close();
 
+    if (response.statusCode == 401)
+      return throw new AuthorizationException(response.statusCode.toString());
+
     String reply = await response.transform(utf8.decoder).join();
 
     if (reply != "") {
@@ -67,10 +70,7 @@ class Request {
               response.statusCode.toString() +
               " \n message: " +
               responseDecode['mensagem'].toString());
-      } else if (response.statusCode == 401)
-        throw new AuthorizationException(
-            response.statusCode.toString() + "\n" + responseDecode.toString());
-
+      }
       return responseDecode;
     }
   }
