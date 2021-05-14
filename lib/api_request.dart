@@ -29,8 +29,6 @@ class ApiRequest {
         'Authorization': 'Bearer ${this._auth?.getAccessToken()}'
       };
 
-      requestOptions['headers']['api-sdk'] = 'dart-${Config.version}';
-
       requestOptions['timeout'] = this._options.containsKey('timeout')
           ? double.parse(this._options['timeout'].toString())
           : 30.0;

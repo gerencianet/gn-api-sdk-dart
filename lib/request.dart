@@ -37,7 +37,7 @@ class Request {
           .forEach((k) => request.headers.add(k, _config['headers'][k]));
 
     request.headers.add('Content-Type', 'application/json');
-    request.headers.add('api-sdk', 'dart - ${Config.version}}');
+    request.headers.add('api-sdk', 'dart-${Config.version}');
 
     if (this._config['partnerToken'] != null &&
         this._config['partnerToken'] != '')
