@@ -1,7 +1,7 @@
-import 'package:gerencianet/auth.dart';
-import 'package:gerencianet/config.dart';
-import 'package:gerencianet/exception/authorization_exception.dart';
-import 'package:gerencianet/request.dart';
+
+import 'auth.dart';
+import 'exception/authorization_exception.dart';
+import 'request.dart';
 
 class ApiRequest {
   Request? _request;
