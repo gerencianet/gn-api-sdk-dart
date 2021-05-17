@@ -1,5 +1,6 @@
-import 'package:gerencianet/api_request.dart';
-import 'package:gerencianet/config.dart';
+
+import 'api_request.dart';
+import 'config.dart';
 
 class EndPoints {
   ApiRequest? _requester;

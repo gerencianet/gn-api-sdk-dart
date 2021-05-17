@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:gerencianet/config.dart';
-import 'package:gerencianet/exception/authorization_exception.dart';
+import 'config.dart';
+import 'exception/authorization_exception.dart';
 
 class Request {
   HttpClient _client = new HttpClient();
