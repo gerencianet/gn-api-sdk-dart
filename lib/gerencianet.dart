@@ -1,5 +1,3 @@
-import 'package:gerencianet/end_points.dart';
+library gerencianet;
 
-class Gerencianet extends EndPoints {
-  Gerencianet(Map options) : super(options);
-}
+export 'src/gerencianet.dart';

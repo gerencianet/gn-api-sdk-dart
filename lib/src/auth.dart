@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:gerencianet/config.dart';
-import 'package:gerencianet/request.dart';
+import 'config.dart';
+import 'request.dart';
 
 class Auth {
   Map _config = {};
