@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/services.dart' show rootBundle;
 
 import 'config.dart';
 import 'exception/authorization_exception.dart';
@@ -11,13 +12,7 @@ class Request {
   Request(Map options) {
     this._config = Config.options(options);
 
-    if (this._config.containsKey('pixCert')) {
-      SecurityContext context = SecurityContext.defaultContext
-        ..useCertificateChain(this._config['pixCert'], password: "")
-        ..usePrivateKey(this._config['pixPrivateKey'], password: "");
-
-      this._client = new HttpClient(context: context);
-    }
+    if (this._config.containsKey('pixCert')) _addCerts();
   }
 
   Future<dynamic> send(
@@ -73,5 +68,19 @@ class Request {
       }
       return responseDecode;
     }
+  }
+
+  void _addCerts() async {
+    SecurityContext context = SecurityContext.defaultContext;
+
+    final List<int> certificateChainBytes =
+        (await rootBundle.load(this._config['pixCert'])).buffer.asInt8List();
+    context.useCertificateChainBytes(certificateChainBytes);
+    final List<int> keyBytes =
+        (await rootBundle.load(this._config['pixPrivateKey']))
+            .buffer
+            .asInt8List();
+    context.usePrivateKeyBytes(keyBytes);
+    this._client = new HttpClient(context: context);
   }
 }
