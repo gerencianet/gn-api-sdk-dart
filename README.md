@@ -60,6 +60,11 @@ void createCharge(){
 You can check out examples of all of our endpoints in [our repository](https://github.com/gerencianet/gn-api-sdk-dart/tree/master/examples).
 
 
+![Example app](https://s3.amazonaws.com/gerencianet-pub-prod-1/printscreen/2021/06/14/igor.pedroso/0fae57-43bb098d-f9e0-4a0a-b424-4c124ff69450.png)
+
+You can also check out our sample Flutter app in [our repository.](https://github.com/gerencianet/gn-api-sdk-flutter-examples)
+
+
 
 ### If you use the Pix option:
 
