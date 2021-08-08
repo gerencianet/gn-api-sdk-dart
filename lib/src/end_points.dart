@@ -1,10 +1,11 @@
-
+import 'payment_token.dart';
 import 'api_request.dart';
 import 'config.dart';
 
 class EndPoints {
   ApiRequest? _requester;
   Map _endPoints = {};
+  dynamic config = {};
 
   EndPoints(Map options) {
     this._requester = new ApiRequest(options);
@@ -14,13 +15,17 @@ class EndPoints {
     this._endPoints = Config.isPix(options)
         ? this._endPoints['PIX']
         : this._endPoints['DEFAULT'];
+
+    this.config = Config.options(options);
   }
 
   Future<dynamic> call(String endpoint,
       {Map<String, dynamic>? params,
       dynamic body,
       Map<String, String>? headers}) async {
-    return await _kernelCall(endpoint, params: params, body: body);
+    return endpoint != "paymentToken"
+        ? await _kernelCall(endpoint, params: params, body: body)
+        : PaymentToken.generate(body, this.config);
   }
 
   Future<dynamic> _kernelCall(String endpointName,
