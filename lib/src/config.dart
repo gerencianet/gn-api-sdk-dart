@@ -1,7 +1,7 @@
 import 'constants.dart';
 
 class Config {
-  static final String version = "1.1.1";
+  static final String version = "1.2.0";
 
   static options(Map options) {
     dynamic conf = {};
