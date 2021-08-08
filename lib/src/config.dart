@@ -11,6 +11,9 @@ class Config {
 
     conf['debug'] = options.containsKey('debug') ? options['debug'] : false;
 
+    if (options.containsKey('account_id'))
+      conf['accountId'] = options['account_id'];
+
     if (options.containsKey('client_id'))
       conf['clientId'] = options['client_id'];
 
