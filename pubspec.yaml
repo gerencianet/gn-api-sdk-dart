@@ -16,7 +16,3 @@ dev_dependencies:
   test: ^1.17.1
 
 flutter:
-  plugin:
-    platforms:
-      some_platform:
-        pluginClass: gerencianet

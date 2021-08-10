@@ -1,4 +1,3 @@
-
 import 'end_points.dart';
 
 class Gerencianet extends EndPoints {

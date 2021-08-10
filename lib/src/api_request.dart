@@ -1,4 +1,3 @@
-
 import 'auth.dart';
 import 'exception/authorization_exception.dart';
 import 'request.dart';

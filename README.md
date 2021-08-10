@@ -3,7 +3,6 @@
 # gn-api-sdk-dart
 
 SDK for Gerencianet Pagamentos' API.
-For more informations about parameters and values, please refer to [Gerencianet](http://gerencianet.com.br) documentation.
 
 
 ## Installation
