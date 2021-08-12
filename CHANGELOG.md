@@ -13,3 +13,6 @@
 - Updated: read PIX certificate
 - Updated: readme information
 
+# 1.2.0
+
+- Updated: generation payment token
