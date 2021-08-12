@@ -1,7 +1,11 @@
 import 'constants.dart';
 
+/// This class is used to create an Object with all needed configurations used in
+/// Gerencianet API. This configurations include the Endpoints and URLs of
+/// Gerencianet API, and credential data of Gerencianet client.
+
 class Config {
-  static final String version = "1.1.1";
+  static final String version = "1.2.0";
 
   static options(Map options) {
     dynamic conf = {};
@@ -10,6 +14,9 @@ class Config {
         options.containsKey('sandbox') ? options['sandbox'] : false;
 
     conf['debug'] = options.containsKey('debug') ? options['debug'] : false;
+
+    if (options.containsKey('account_id'))
+      conf['accountId'] = options['account_id'];
 
     if (options.containsKey('client_id'))
       conf['clientId'] = options['client_id'];

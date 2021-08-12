@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 1.0.2">
+  <meta name="description" content="gerencianet API docs, for the Dart programming language.">
+  <title>gerencianet - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href=""
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://github.com/gerencianet/gn-api-sdk-dart">gerencianet package</a></li>
+  </ol>
+  <div class="self-name">gerencianet</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <p><img src="https://media-exp1.licdn.com/dms/image/C4D1BAQH9taNIaZyh_Q/company-background_10000/0/1603126623964?e=2159024400&amp;v=beta&amp;t=coQC_AK70vTYL3NdvbeIaeYts8nKumNHjvvIGCmq5XA" alt="SDK Gerencianet for Dart"></p>
+<h1 id="gn-api-sdk-dart">gn-api-sdk-dart</h1>
+<p>SDK for Gerencianet Pagamentos' API.</p>
+<h2 id="installation">Installation</h2>
+<p>To use this plugin, add gerencianet as <a href="https://flutter.dev/docs/development/packages-and-plugins/using-packages">a dependency in your pubspec.yaml file.</a></p>
+<h2 id="getting-started">Getting started</h2>
+<p>Then initialize the plugin preferably in the initState of your widget.</p>
+<pre class="language-dart"><code>...
+import 'package:gerencianet/gerencianet.dart';
+
+class _PaymentPageState extends State&lt;PaymentPage&gt; {
+  var config = {
+    'client_id': 'YOUR_CLIENT_ID',
+    'client_secret': 'YOU_CLIENT_SECRET',
+    'sandbox': false,
+    'pix_cert': '',
+    'pix_private_key': ''
+  };
+  Gerencianet gerencianet;
+
+  @override
+  void initState() {
+    this.gerencianet  = Gerencianet(config);
+  }
+
+}
+...
+</code></pre>
+<h2 id="examples">Examples</h2>
+<p>Example for creating a charge.</p>
+<pre class="language-dart"><code>void createCharge(){
+  Gerencianet gn = Gerencianet(config);
+  dynamic body = {
+      'items': [
+        {'name': "Product 1", 'value': 1100, 'amount': 2}
+      ],
+    };
+  return await gn.call('createCharge', body: body);
+}
+
+</code></pre>
+<p>You can check out examples of all of our endpoints in <a href="https://github.com/gerencianet/gn-api-sdk-dart/tree/master/examples">our repository</a>.</p>
+<p><img src="https://s3.amazonaws.com/gerencianet-pub-prod-1/printscreen/2021/06/14/igor.pedroso/0fae57-43bb098d-f9e0-4a0a-b424-4c124ff69450.png" alt="Example app"></p>
+<p>You can also check out our sample Flutter app in <a href="https://github.com/gerencianet/gn-api-sdk-flutter-examples">our repository.</a></p>
+<h3 id="if-you-use-the-pix-option">If you use the Pix option:</h3>
+<p><strong>To generate your certificate:</strong> Access the menu API (1)-&gt; Meus Certificados (2) and choose the environment you want the certificate: Produção or Homologação -&gt; click in Novo Certificado (3). 
+<img src="https://app-us-east-1.t-cdn.net/5fa37ea6b47fe9313cb4c9ca/posts/603543f7d1778b2d725dea1e/603543f7d1778b2d725dea1e_85669.png" alt="To generate your certificate"></p>
+<p><strong>Create a new application to use the Pix API:</strong> Access the menu API (1)-&gt; Minhas Aplicações -&gt; Nova Aplicação(2) -&gt; Ative API Pix (3) and choose the scopes you want to release in Produção e/ou Homologação (remembering that these can be changed later). -&gt; click in Criar Nova aplicação(4).
+<img src="https://t-images.imgix.net/https%3A%2F%2Fapp-us-east-1.t-cdn.net%2F5fa37ea6b47fe9313cb4c9ca%2Fposts%2F603543ff4253cf5983339cf1%2F603543ff4253cf5983339cf1_88071.png?width=1240&amp;w=1240&amp;auto=format%2Ccompress&amp;ixlib=js-2.3.1&amp;s=2f24c7ea5674dbbea13773b3a0b1e95c" alt="Create a new application to use the Pix API"></p>
+<p><strong>Change an existing application to use the Pix API:</strong> Access the menu API (1)-&gt; Minhas Aplicações e escolha a sua aplicação (2) -&gt; Editar(Botão laranja) -&gt; Ative API Pix (3) and choose the scopes you want to release in Produção e/ou Homologação. -&gt; click in Atualizar aplicação (4).
+<img src="https://app-us-east-1.t-cdn.net/5fa37ea6b47fe9313cb4c9ca/posts/603544082060b2e9b88bc717/603544082060b2e9b88bc717_22430.png" alt="Change an existing application to use the Pix API"></p>
+<p>For use in Dart, the certificate must be converted to .pem.
+Below you will find example using the OpenSSL command for conversion.</p>
+<h3 id="command-openssl">Command OpenSSL</h3>
+<pre class="language-dart"><code>// Gerar certificado e chave separadas
+openssl pkcs12 -in path.p12 -out newfile.crt.pem -clcerts -nokeys //certificado
+openssl pkcs12 -in path.p12 -out newfile.key.pem -nocerts -nodes //chave privada
+</code></pre>
+<h3 id="to-register-your-pix-keys">To register your Pix keys</h3>
+<p>The registration of Pix keys can be done through the application. If you don't already have our app installed, click on <a href="https://play.google.com/store/apps/details?id=br.com.gerencianet.app">Android</a> or <a href="https://apps.apple.com/br/app/gerencianet/id1443363326">iOS</a>, according to your smartphone's operating system, to download it.</p>
+<p>To register your Pix keys through the application:</p>
+<ol>
+<li>Access your account through <strong>app Gerencianet</strong>.</li>
+<li>In the side menu, touch <strong>Pix</strong> to start your registration.</li>
+<li>Read the information that appears on the screen and click <strong>Registrar Chave</strong>.
+ If this is no longer your first contact, tap <strong>Minhas Chaves</strong> and then the icon (➕).</li>
+<li><strong>Select the data</strong> you are going to register as a Pix Key and tap <strong>avançar</strong> - you must choose at least 1 of the 4 available key options (cell, e-mail, CPF e/ou random key).</li>
+<li>After registering the desired Pix keys, click on <strong>concluir</strong>.</li>
+<li><strong>Ready! Your keys are already registered with us.</strong></li>
+</ol>
+<h2 id="additional-documentation">Additional Documentation</h2>
+<p>The full documentation with all available endpoints is in <a href="https://dev.gerencianet.com.br/">https://dev.gerencianet.com.br/</a>.</p>
+<p>If you don't have a digital account atnetnet, <a href="https://sistema.gerencianet.com.br/">open yours now</a>!</p>
+<h2 id="license">License</h2>
+<p><a href="LICENSE">MIT</a></p>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="gerencianet">
+  <span class="name"><a href="gerencianet/gerencianet-library.html">gerencianet</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="https://github.com/gerencianet/gn-api-sdk-dart">gerencianet package</a></li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">gerencianet</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="gerencianet/gerencianet-library.html">gerencianet</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    gerencianet
+      1.1.1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

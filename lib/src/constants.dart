@@ -1,3 +1,5 @@
+/// This constant stores all the Gerencianet API Endpoints and other information
+
 const CONSTANTS = {
   "URL": {
     "DEFAULT": {
@@ -7,7 +9,8 @@ const CONSTANTS = {
     "PIX": {
       "production": "https://api-pix.gerencianet.com.br",
       "sandbox": "https://api-pix-h.gerencianet.com.br"
-    }
+    },
+    "TOKENIZER": "https://tokenizer.gerencianet.com.br/salt"
   },
   "ENDPOINTS": {
     "DEFAULT": {
@@ -19,6 +22,7 @@ const CONSTANTS = {
         "route": "/v1/charge/:id/metadata",
         "method": "put"
       },
+      "pubKey": {"route": "/v1/pubkey?code=", "method": "get"},
       "updateBillet": {"route": "/v1/charge/:id/billet", "method": "put"},
       "payCharge": {"route": "/v1/charge/:id/pay", "method": "post"},
       "cancelCharge": {"route": "/v1/charge/:id/cancel", "method": "put"},

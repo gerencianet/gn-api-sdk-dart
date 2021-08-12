@@ -3,6 +3,9 @@ import 'dart:convert';
 import 'config.dart';
 import 'request.dart';
 
+/// This class is used to create an authenticator Object, responsible to send
+/// needed Gerencianet credentials (Client_Id and Client_Secret) to it's API.
+
 class Auth {
   Map _config = {};
   Request? _request;
