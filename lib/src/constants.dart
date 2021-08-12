@@ -1,3 +1,7 @@
+
+
+/// This constant stores all the Gerencianet API Endpoints and other information
+
 const CONSTANTS = {
   "URL": {
     "DEFAULT": {

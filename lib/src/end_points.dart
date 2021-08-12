@@ -2,6 +2,9 @@ import 'payment_token.dart';
 import 'api_request.dart';
 import 'config.dart';
 
+/// This is the mains class of Gerencianet SDK. It's responsible to instance an ApiRequest,
+/// send the right data to a given endpoint, and return a response to SDK client.
+
 class EndPoints {
   ApiRequest? _requester;
   Map _endPoints = {};

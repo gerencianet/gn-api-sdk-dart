@@ -2,6 +2,10 @@ import 'auth.dart';
 import 'exception/authorization_exception.dart';
 import 'request.dart';
 
+/// This class instance a Auth Object, to authenticate client credentials in
+/// Gerencianet API. After client's credentials are validated a client Object
+/// send a given request body to a given endpoint throw a given route.
+
 class ApiRequest {
   Request? _request;
   Auth? _auth;

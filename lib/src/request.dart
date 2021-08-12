@@ -1,9 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/services.dart' show rootBundle;
-
 import 'config.dart';
 import 'exception/authorization_exception.dart';
+
+/// This class is responsible to create an HttpClient Object, generate the
+/// request body and send it to a given endpoint. The send method return a
+/// response for that request.
+
 
 class Request {
   HttpClient _client = new HttpClient();

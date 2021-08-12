@@ -1,5 +1,10 @@
 import 'constants.dart';
 
+/// This class is used to create an Object with all needed configurations used in
+/// Gerencianet API. This configurations include the Endpoints and URLs of
+/// Gerencianet API, and credential data of Gerencianet client.
+
+
 class Config {
   static final String version = "1.2.0";
 

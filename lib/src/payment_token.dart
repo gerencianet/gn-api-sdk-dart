@@ -4,6 +4,8 @@ import 'package:encrypt/encrypt.dart';
 import 'package:pointycastle/asymmetric/api.dart';
 import 'config.dart';
 
+/// This class is responsible for carrying out requests that generate a valid Payment Token
+
 class PaymentToken {
   static dynamic generate(Map card, dynamic config) async {
     dynamic salt = await getTokenizer(config);
