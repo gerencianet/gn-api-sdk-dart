@@ -8,7 +8,6 @@ import 'exception/authorization_exception.dart';
 /// request body and send it to a given endpoint. The send method return a
 /// response for that request.
 
-
 class Request {
   HttpClient _client = new HttpClient();
   Map _config = {};

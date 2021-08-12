@@ -18,7 +18,6 @@ void main() async {
 
 dynamic paySubscription(
     Gerencianet gn, int subscriptionId, Map<String, Object> card) async {
-
   dynamic paymentToken = await gn.call("paymentToken", body: card);
 
   Map<String, dynamic> params = {'id': subscriptionId};
