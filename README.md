@@ -4,6 +4,18 @@
 
 SDK for Gerencianet Pagamentos' API.
 
+https://img.shields.io/pub/v/dio.svg?style=flat-square
+
+
+[![Pub](https://img.shields.io/pub/v/gerencianet.svg?style=flat-square)](https://pub.dartlang.org/packages/gerencianet)
+
+
+
+
+
+
+
+
 
 ## Installation
 To use this plugin, add gerencianet as [a dependency in your pubspec.yaml file.](https://flutter.dev/docs/development/packages-and-plugins/using-packages)
