@@ -22,14 +22,14 @@ Ir para:
 * [Documentação Adicional](#documentação-adicional)
 * [Licença](#licença)
 
----
+
 
 
 ## **Instalação**
 Para usar este plugin, adicione gerencianet como [uma dependência em seu arquivo pubspec.yaml.](https://flutter.dev/docs/development/packages-and-plugins/using-packages)
 
 
----
+
 
 
 ## Começando
@@ -130,7 +130,7 @@ Para registrar suas chaves Pix por meio do aplicativo:
 6. **Pronto! Suas chaves já estão cadastradas com a gente.**
 
 
----
+
 
 
 ## **Exemplos**
@@ -140,12 +140,11 @@ Você pode consultar todos os exemplos disponiveis para Flutter, [clicando aqui]
 Também disponibilizamos um projeto em Flutter contendo exemplos de todas as funcionalidades das nossas APIs. Você pode clonar o repositório do projeto, [clique aqui para acessar](https://github.com/gerencianet/gn-api-sdk-flutter-examples).
 
 
----
 
 ## **Documentação Adicional**
 
 A documentação completa com todos os endpoints e detalhes da API está disponível emhttps://dev.gerencianet.com.br/.
 
 
-## License ##
+## **Licença** 
 [MIT](LICENSE)
