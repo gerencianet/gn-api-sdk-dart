@@ -5,7 +5,7 @@ import 'constants.dart';
 /// Gerencianet API, and credential data of Gerencianet client.
 
 class Config {
-  static final String version = "1.2.0";
+  static final String version = "1.2.1";
 
   static options(Map options) {
     dynamic conf = {};

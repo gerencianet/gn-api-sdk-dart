@@ -16,3 +16,8 @@
 # 1.2.0
 
 - Updated: generation payment token
+
+# 1.2.1
+
+- Updated: listing of all examples
+- Updated: bug fix
