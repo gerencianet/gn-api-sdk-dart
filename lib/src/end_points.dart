@@ -1,19 +1,17 @@
-
+import 'package:gerencianet/src/payment_token.dart';
 import 'api_request.dart';
 import 'config.dart';
 
+/// This is the mains class of Gerencianet SDK. It's responsible to instance an ApiRequest,
+/// send the right data to a given endpoint, and return a response to SDK client.
+
 class EndPoints {
   ApiRequest? _requester;
-  Map _endPoints = {};
+  Config _config = new Config();
 
   EndPoints(Map options) {
-    this._requester = new ApiRequest(options);
-
-    this._endPoints = Config.get('ENDPOINTS');
-
-    this._endPoints = Config.isPix(options)
-        ? this._endPoints['PIX']
-        : this._endPoints['DEFAULT'];
+    this._config.set(options);
+    this._requester = new ApiRequest();
   }
 
   Future<dynamic> call(String endpoint,
@@ -25,10 +23,10 @@ class EndPoints {
 
   Future<dynamic> _kernelCall(String endpointName,
       {Map<String, dynamic>? params, dynamic body}) async {
-    if (this._endPoints[endpointName] == null)
-      throw new Exception("nonexistent endpoint");
+    dynamic endpoint = this._config.getEndpoint(endpointName);
 
-    dynamic endpoint = this._endPoints[endpointName];
+    if (endpointName == 'paymentToken')
+      return PaymentToken.generate(body, this._config.conf);
 
     String route = _getRoute(endpoint, params);
 

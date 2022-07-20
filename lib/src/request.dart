@@ -1,42 +1,46 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/services.dart' show rootBundle;
-
 import 'config.dart';
 import 'exception/authorization_exception.dart';
 
+/// This class is responsible to create an HttpClient Object, generate the
+/// request body and send it to a given endpoint. The send method return a
+/// response for that request.
+
 class Request {
   HttpClient _client = new HttpClient();
-  Map _config = {};
+  Config _config = new Config();
 
-  Request(Map options) {
-    this._config = Config.options(options);
-
-    if (this._config.containsKey('pixCert')) _addCerts();
+  Request() {
+    if (this._config.conf.containsKey('pixCert')) {
+      SecurityContext context = SecurityContext.defaultContext
+        ..useCertificateChain(this._config.conf['pixCert'], password: "")
+        ..usePrivateKey(this._config.conf['pixPrivateKey'], password: "");
+      this._client = new HttpClient(context: context);
+    }
   }
 
   Future<dynamic> send(
       String method, String route, dynamic requestOptions) async {
     HttpClientRequest request = await this
         ._client
-        .openUrl(method, Uri.parse(this._config['baseUri'] + route));
+        .openUrl(method, Uri.parse(this._config.conf['baseUri'] + route));
 
     if (requestOptions.containsKey('headers'))
       requestOptions['headers']
           .keys
           .forEach((k) => request.headers.add(k, requestOptions['headers'][k]));
 
-    if (_config.containsKey('headers'))
-      _config['headers']
-          .keys
-          .forEach((k) => request.headers.add(k, _config['headers'][k]));
+    if (this._config.conf.containsKey('headers'))
+      this._config.conf['headers'].keys.forEach(
+          (k) => request.headers.add(k, this._config.conf['headers'][k]));
 
     request.headers.add('Content-Type', 'application/json');
     request.headers.add('api-sdk', 'dart-${Config.version}');
 
-    if (this._config['partnerToken'] != null &&
-        this._config['partnerToken'] != '')
-      request.headers.add('partner-token', this._config['partnerToken']);
+    if (this._config.conf['partnerToken'] != null &&
+        this._config.conf['partnerToken'] != '')
+      request.headers.add('partner-token', this._config.conf['partnerToken']);
 
     String bodyEncode = json.encode(requestOptions['body']);
 
@@ -68,19 +72,5 @@ class Request {
       }
       return responseDecode;
     }
-  }
-
-  void _addCerts() async {
-    SecurityContext context = SecurityContext.defaultContext;
-
-    final List<int> certificateChainBytes =
-        (await rootBundle.load(this._config['pixCert'])).buffer.asInt8List();
-    context.useCertificateChainBytes(certificateChainBytes);
-    final List<int> keyBytes =
-        (await rootBundle.load(this._config['pixPrivateKey']))
-            .buffer
-            .asInt8List();
-    context.usePrivateKeyBytes(keyBytes);
-    this._client = new HttpClient(context: context);
   }
 }
