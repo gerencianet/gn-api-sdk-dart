@@ -1,3 +1,4 @@
+import 'config.dart';
 import 'auth.dart';
 import 'exception/authorization_exception.dart';
 import 'request.dart';
@@ -9,12 +10,11 @@ import 'request.dart';
 class ApiRequest {
   Request? _request;
   Auth? _auth;
+  Config _config = new Config();
 
-  Map _options = {};
-
-  ApiRequest(this._options) {
-    this._request = new Request(_options);
-    this._auth = new Auth(this._options);
+  ApiRequest() {
+    this._request = new Request();
+    this._auth = new Auth();
   }
 
   Future<dynamic> send(
@@ -32,8 +32,8 @@ class ApiRequest {
         'Authorization': 'Bearer ${this._auth?.getAccessToken()}'
       };
 
-      requestOptions['timeout'] = this._options.containsKey('timeout')
-          ? double.parse(this._options['timeout'].toString())
+      requestOptions['timeout'] = this._config.conf.containsKey('timeout')
+          ? double.parse(this._config.conf['timeout'].toString())
           : 30.0;
 
       dynamic response =

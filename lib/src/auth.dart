@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'config.dart';
 import 'request.dart';
 
@@ -7,7 +6,7 @@ import 'request.dart';
 /// needed Gerencianet credentials (Client_Id and Client_Secret) to it's API.
 
 class Auth {
-  Map _config = {};
+  Config _config = new Config();
   Request? _request;
   String _clientId = "";
   String _clientSecret = "";
@@ -15,25 +14,28 @@ class Auth {
   DateTime? _expires;
   String _pixCert = "";
 
-  Auth(Map options) {
-    this._config = Config.options(options);
-
-    if (!this._config.containsKey('clientId') ||
-        !this._config.containsKey('clientSecret'))
+  Auth() {
+    if (!this._config.conf.containsKey('clientId') ||
+        !this._config.conf.containsKey('clientSecret'))
       throw new Exception('Client id or secret not found');
 
-    this._request = new Request(options);
+    this._request = new Request();
 
-    this._clientId = this._config['clientId'];
+    this._clientId = this._config.conf['clientId'];
 
-    this._pixCert =
-        this._config['pixCert'] != null ? this._config['pixCert'] : '';
+    this._pixCert = this._config.conf['pixCert'] != null
+        ? this._config.conf['pixCert']
+        : '';
 
-    this._clientSecret = this._config['clientSecret'];
+    this._clientSecret = this._config.conf['clientSecret'];
   }
 
   authorize() async {
-    Map endpoints = Config.get('ENDPOINTS');
+    Map endpoints = {'route': '/authorize', 'method': 'post'};
+
+    if (this._config.conf.containsKey('pixCert') &&
+        this._config.conf.containsKey('pixPrivateKey'))
+      endpoints = {'route': '/oauth/token', 'method': 'post'};
 
     dynamic requestOptions = {
       'headers': {
@@ -43,18 +45,15 @@ class Auth {
                 .toString()
       },
       'body': {'grant_type': 'client_credentials'},
-      'timeout':
-          this._config['timeout'] != null ? this._config['timeout'] : 30.0
+      'timeout': this._config.conf['timeout']
     };
 
-    if (!this._config.containsKey('headers')) this._config['headers'] = {};
+    if (!this._config.conf.containsKey('headers'))
+      this._config.conf['headers'] = {};
 
-    endpoints = this._pixCert != "" ? endpoints['PIX'] : endpoints['DEFAULT'];
-
-    dynamic response = await this._request?.send(
-        endpoints['authorize']['method'],
-        endpoints['authorize']['route'],
-        requestOptions);
+    dynamic response = await this
+        ._request
+        ?.send(endpoints['method'], endpoints['route'], requestOptions);
 
     this._accessToken = response['access_token'];
 

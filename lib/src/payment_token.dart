@@ -5,7 +5,6 @@ import 'package:pointycastle/asymmetric/api.dart';
 import 'config.dart';
 
 /// This class is responsible for carrying out requests that generate a valid Payment Token
-
 class PaymentToken {
   static dynamic generate(Map card, dynamic config) async {
     dynamic salt = await getTokenizer(config);
@@ -32,7 +31,7 @@ class PaymentToken {
   }
 
   static Future<dynamic> getTokenizer(dynamic config) async {
-    String url = Config.get("URL")['TOKENIZER'];
+    String url = 'https://tokenizer.gerencianet.com.br/salt';
     HttpClient client = new HttpClient();
     HttpClientRequest request = await client.openUrl("get", Uri.parse(url));
     request.headers.add('account-code', config['accountId']);
@@ -42,9 +41,7 @@ class PaymentToken {
   }
 
   static Future<dynamic> getKey(dynamic config) async {
-    String url = config["baseUri"] +
-        Config.get('ENDPOINTS')["DEFAULT"]["pubKey"]["route"] +
-        config["accountId"];
+    String url = config["baseUri"] + '/pubkey?code=' + config["accountId"];
     HttpClient client = new HttpClient();
     HttpClientRequest request = await client.openUrl("get", Uri.parse(url));
     HttpClientResponse response = await request.close();

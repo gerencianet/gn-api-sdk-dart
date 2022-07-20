@@ -15,7 +15,7 @@ dynamic linkCharge(Gerencianet gn, int chargeId) async {
     'billet_discount': 1,
     'card_discount': 1,
     'message': '',
-    'expire_at': '2021-12-12',
+    'expire_at': '2022-12-12',
     'request_delivery_address': false,
     'payment_method': 'all'
   };
