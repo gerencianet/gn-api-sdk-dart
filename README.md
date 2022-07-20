@@ -31,6 +31,7 @@ Em seguida, inicialize o plugin de preferência no initState do seu widget.
 ```
 ...
 import 'package:gerencianet/gerencianet.dart';
+
 class _PaymentPageState extends State<PaymentPage> {
   var config = {
     'client_id': 'YOUR_CLIENT_ID',
@@ -40,10 +41,12 @@ class _PaymentPageState extends State<PaymentPage> {
     'pix_private_key': ''
   };
   Gerencianet gerencianet;
+
   @override
   void initState() {
     this.gerencianet  = Gerencianet(config);
   }
+
 }
 ...
 ```

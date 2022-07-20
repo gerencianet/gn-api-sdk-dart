@@ -5,11 +5,20 @@ void main() async {
   credentials.remove('pix_cert');
   credentials.remove('pix_private_key');
   Gerencianet gn = Gerencianet(credentials);
-  dynamic response = createCharge(gn);
+  Map<String, Object> card = {
+    "brand": "",
+    "number": "",
+    "cvv": "",
+    "expiration_month": "",
+    "expiration_year": ""
+  };
+  dynamic response = createCharge(gn, card);
   print(response);
 }
 
-dynamic createCharge(Gerencianet gn) async {
+dynamic createCharge(Gerencianet gn, Map<String, Object> card) async {
+  dynamic paymentToken = await gn.call("paymentToken", body: card);
+
   dynamic body = {
     "items": [
       {
@@ -36,7 +45,7 @@ dynamic createCharge(Gerencianet gn) async {
     "payment": {
       "credit_card": {
         "installments": 1,
-        "payment_token": "InsiraAquiUmPayeementeCode",
+        "payment_token": paymentToken['data']['payment_token'],
         "billing_address": {
           "street": "Av. JK",
           "number": 909,

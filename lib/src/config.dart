@@ -5,7 +5,7 @@ import 'constants.dart';
 /// Gerencianet API, and credential data of Gerencianet client.
 
 class Config {
-  static final String version = "1.1.0";
+  static final String version = "1.2.2";
   Map conf = {};
 
   static final Config _singleton = Config._internal();
@@ -72,16 +72,4 @@ class Config {
       this.conf['baseUri'] = CONSTANTS[api]?['URL']['production'];
     }
   }
-
-  // static isPix(Map options) {
-  //   return options.containsKey('pix_cert') && options['pix_cert'] is String;
-  // }
-
-  // static get(String property) {
-  //   dynamic options = CONSTANTS;
-  //   if (options.containsKey(property)) {
-  //     return options[property];
-  //   }
-  //   return;
-  // }
 }
