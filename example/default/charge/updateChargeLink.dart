@@ -10,7 +10,7 @@ void main() async {
 }
 
 dynamic updateChargeLink(Gerencianet gn, int chargeId) async {
-  dynamic body = {"expire_at": "2021-12-12"};
+  dynamic body = {"expire_at": "2022-12-13"};
   Map<String, dynamic> params = {"id": chargeId};
   return await gn.call("updateChargeLink", params: params, body: body);
 }
