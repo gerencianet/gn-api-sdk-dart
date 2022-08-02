@@ -13,7 +13,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
 dev_dependencies:
   test: ^1.17.1
 

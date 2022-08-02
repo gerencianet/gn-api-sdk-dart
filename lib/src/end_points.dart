@@ -1,4 +1,4 @@
-import 'package:gerencianet/src/payment_token.dart';
+import 'payment_token.dart';
 import 'api_request.dart';
 import 'config.dart';
 
