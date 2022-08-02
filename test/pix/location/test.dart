@@ -2,7 +2,7 @@ import 'package:gerencianet/gerencianet.dart';
 
 import '../../credentials.dart';
 import 'testPixCreateLocation.dart';
-import 'test_delete_get.dart';
+import 'testPixDetailLocation.dart';
 import 'testPixUnsetTxid.dart';
 import 'testPixListLocation.dart';
 import 'testPixGenerateQRCode.dart';
