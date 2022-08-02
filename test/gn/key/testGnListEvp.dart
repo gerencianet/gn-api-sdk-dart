@@ -1,6 +1,6 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
-import '../../../example/gn/key/gnListEvp.dart';
+import '../../../example/gn/key/pixListEvp.dart';
 import '../../credentials.dart';
 
 void main() async {
@@ -10,7 +10,7 @@ void main() async {
 
 dynamic testGnListEvp(Gerencianet gn) async {
   test('pix key list', () async {
-    _verifyPixListEvp(await gnListEvp(gn));
+    _verifyPixListEvp(await pixListEvp(gn));
   });
 }
 

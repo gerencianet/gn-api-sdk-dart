@@ -1,9 +1,9 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
-import '../../../example/pix/webhook/webhookUrl.dart';
+import '../../../example/pix/webhook/pixConfigWebhook.dart';
 import '../../../example/pix/webhook/pixDeleteWebhook.dart';
-import '../../../example/gn/key/gnCreateEvp.dart';
-import '../../../example/gn/key/gnDeleteEvp.dart';
+import '../../../example/gn/key/pixCreateEvp.dart';
+import '../../../example/gn/key/pixDeleteEvp.dart';
 import '../../credentials.dart';
 
 void main() async {
@@ -13,11 +13,11 @@ void main() async {
 
 dynamic testWebhookUrl(Gerencianet gn, String url) async {
   test('pix webhook create', () async {
-    dynamic key = _verifyPixCreateEvp(await gnCreateEvp(gn));
+    dynamic key = _verifyPixCreateEvp(await pixCreateEvp(gn));
     _verifyPixWebhookCreate(await pixConfigWebhook(gn, key['chave'], url));
     await Future.delayed(const Duration(seconds: 1), () async {
       _verifyPixWebhookDelete(await pixDeleteWebhook(gn, key['chave']));
-      _verifyPixDeleteEvp(await gnDeleteEvp(gn, key['chave']));
+      _verifyPixDeleteEvp(await pixDeleteEvp(gn, key['chave']));
     });
   });
 }

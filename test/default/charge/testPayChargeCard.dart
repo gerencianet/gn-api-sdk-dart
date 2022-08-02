@@ -12,8 +12,7 @@ void main() async {
 dynamic testPayChargeCard(Gerencianet gn, String paymentToken) async {
   test('charge create credit card', () async {
     dynamic charge = _verifyCreateCharge(await createCharge(gn));
-    _verifyCreatePay(
-        await payCharge(gn, charge['data']['charge_id'], paymentToken));
+    _verifyCreatePay(await payCharge(gn, charge['data']['charge_id'], {}));
   });
 }
 

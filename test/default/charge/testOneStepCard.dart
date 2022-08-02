@@ -1,6 +1,6 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
-import '../../../example/default/charge/oneStepCard.dart';
+import '../../../example/default/charge/createChargeOneStepCard.dart';
 import '../../credentials.dart';
 
 void main() async {
@@ -10,7 +10,7 @@ void main() async {
 
 dynamic testOneStepCard(Gerencianet gn, paymentToken) async {
   test('charge create one step card', () async {
-    _verifyCreateCharge(await createCharge(gn, paymentToken));
+    _verifyCreateCharge(await createChargeOneStep(gn, paymentToken));
   });
 }
 
