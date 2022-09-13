@@ -12,7 +12,7 @@ void main() async {
     "expiration_month": "",
     "expiration_year": ""
   };
-  dynamic response = await createCharge(gn, card);
+  dynamic response = createCharge(gn, card);
   print(response);
 }
 
@@ -21,7 +21,23 @@ dynamic createCharge(Gerencianet gn, Map<String, Object> card) async {
 
   dynamic body = {
     "items": [
-      {"name": "Product 1", "value": 1000, "amount": 2}
+      {
+        "name": "Product 1",
+        "value": 1000,
+        "amount": 2,
+        "marketplace": {
+          "repasses": [
+            {
+              "payee_code": "Insira_aqui_o_indentificador_da_conta_destino",
+              "percentage": 2500
+            },
+            {
+              "payee_code": "Insira_aqui_o_indentificador_da_conta_destino",
+              "percentage": 1500
+            }
+          ]
+        }
+      }
     ],
     "shippings": [
       {"name": "Default Shipping Cost", "value": 100}
@@ -49,5 +65,5 @@ dynamic createCharge(Gerencianet gn, Map<String, Object> card) async {
     }
   };
 
-  return await gn.call("createChargeOneStep", body: body);
+  return await gn.call("oneStep", body: body);
 }

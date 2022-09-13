@@ -4,10 +4,10 @@ import '../../credentials.dart';
 
 void main() async {
   Gerencianet gn = Gerencianet(credentials);
-  dynamic response = await pixListSettings(gn);
+  dynamic response = await gnDetailSettings(gn);
   print(response);
 }
 
-dynamic pixListSettings(Gerencianet gn) async {
-  return await gn.call("pixListSettings");
+dynamic gnDetailSettings(Gerencianet gn) async {
+  return await gn.call("gnDetailSettings");
 }
