@@ -1,8 +1,8 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
 import '../../../example/pix/charge/pixCreateCharge.dart';
-import '../../../example/gn/key/pixCreateEvp.dart';
-import '../../../example/gn/key/pixDeleteEvp.dart';
+import '../../../example/gn/key/gnCreateEvp.dart';
+import '../../../example/gn/key/gnDeleteEvp.dart';
 import '../../credentials.dart';
 import '../../utils/utils.dart';
 
@@ -14,9 +14,9 @@ void main() async {
 dynamic testPixCreateCharge(Gerencianet gn) async {
   test('pix charge create', () async {
     String txid = generateTxId();
-    dynamic key = _verifyPixCreateEvp(await pixCreateEvp(gn));
+    dynamic key = _verifyPixCreateEvp(await gnCreateEvp(gn));
     _verifyPixCreateCharge(await pixCreateCharge(gn, txid, key['chave']));
-    _verifyDixDeleteEvp(await pixDeleteEvp(gn, key['chave']));
+    _verifyDixDeleteEvp(await gnDeleteEvp(gn, key['chave']));
   });
 }
 

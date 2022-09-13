@@ -10,7 +10,7 @@ void main() async {
 
 dynamic testPixListLocation(Gerencianet gn) async {
   test('pix location list', () async {
-    _verifyPixLocationList(await pixLocationList(gn));
+    _verifyPixLocationList(await pixListLocation(gn));
   });
 }
 
