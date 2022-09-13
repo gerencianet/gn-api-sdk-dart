@@ -1,7 +1,7 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
 import '../../../example/pix/pix/pixDetail.dart';
-import '../../../example/pix/pix/pixReceivedList.dart';
+import '../../../example/pix/pix/pixListReceived.dart';
 import '../../credentials.dart';
 
 void main() async {
@@ -11,7 +11,7 @@ void main() async {
 
 dynamic testPixDetail(Gerencianet gn) async {
   test('pix list detail', () async {
-    dynamic pix = _verifyPixLocationList(await pixReceivedList(gn));
+    dynamic pix = _verifyPixLocationList(await pixListReceived(gn));
     _verifyPixDetail(await pixDetail(gn, pix['pix'][0]['endToEndId']));
   });
 }

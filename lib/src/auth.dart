@@ -23,8 +23,8 @@ class Auth {
 
     this._clientId = this._config.conf['clientId'];
 
-    this._pixCert = this._config.conf['pixCert'] != null
-        ? this._config.conf['pixCert']
+    this._pixCert = this._config.conf['certificate'] != null
+        ? this._config.conf['certificate']
         : '';
 
     this._clientSecret = this._config.conf['clientSecret'];
@@ -33,8 +33,8 @@ class Auth {
   authorize() async {
     Map endpoints = {'route': '/authorize', 'method': 'post'};
 
-    if (this._config.conf.containsKey('pixCert') &&
-        this._config.conf.containsKey('pixPrivateKey'))
+    if (this._config.conf.containsKey('certificate') &&
+        this._config.conf.containsKey('privateKey'))
       endpoints = {'route': '/oauth/token', 'method': 'post'};
 
     dynamic requestOptions = {

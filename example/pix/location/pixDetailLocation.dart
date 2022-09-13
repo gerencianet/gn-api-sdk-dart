@@ -4,11 +4,11 @@ import '../../credentials.dart';
 
 void main() async {
   Gerencianet gn = Gerencianet(credentials);
-  dynamic response = await pixLocationGet(gn, 0);
+  dynamic response = await pixDetailLocation(gn, 0);
   print(response);
 }
 
-dynamic pixLocationGet(Gerencianet gn, int id) async {
+dynamic pixDetailLocation(Gerencianet gn, int id) async {
   Map<String, dynamic> params = {"id": id};
-  return await gn.call("pixLocationGet", params: params);
+  return await gn.call("pixDetailLocation", params: params);
 }

@@ -1,8 +1,8 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
 import '../../../example/gn/account/pixUpdateSettings.dart';
-import '../../../example/gn/key/pixCreateEvp.dart';
-import '../../../example/gn/key/pixDeleteEvp.dart';
+import '../../../example/gn/key/gnCreateEvp.dart';
+import '../../../example/gn/key/gnDeleteEvp.dart';
 import '../../credentials.dart';
 
 void main() async {
@@ -12,9 +12,9 @@ void main() async {
 
 dynamic testGnUpdateSettings(Gerencianet gn) async {
   test('pix account update settings', () async {
-    dynamic key = _verifyPixCreateEvp(await pixCreateEvp(gn));
+    dynamic key = _verifyPixCreateEvp(await gnCreateEvp(gn));
     _verifyPixUpdateSettings(await pixUpdateSettings(gn, key['chave']));
-    _verifyDixDeleteEvp(await pixDeleteEvp(gn, key['chave']));
+    _verifyDixDeleteEvp(await gnDeleteEvp(gn, key['chave']));
   });
 }
 

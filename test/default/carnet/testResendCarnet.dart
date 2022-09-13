@@ -25,7 +25,16 @@ void _verifyResendCarnet(dynamic response) {
 dynamic _verifyCreateCarnet(dynamic response) {
   expect(response.keys.toList(), equals(['code', 'data']));
   expect(response['code'], equals(200));
-  expect(response['data'].keys.toList(),
-      equals(['carnet_id', 'status', 'cover', 'link', 'pdf', 'charges']));
+  expect(
+      response['data'].keys.toList(),
+      equals([
+        'carnet_id',
+        'status',
+        'cover',
+        'link',
+        'carnet_link',
+        'pdf',
+        'charges'
+      ]));
   return response;
 }

@@ -1,6 +1,6 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
-import '../../../example/default/charge/createChargeOneStep.dart';
+import '../../../example/default/charge/oneStepCard.dart';
 import '../../credentials.dart';
 
 void main() async {
@@ -21,7 +21,9 @@ dynamic _verifyCreateCharge(dynamic response) {
       response['data'].keys.toList(),
       equals([
         'barcode',
+        'pix',
         'link',
+        'billet_link',
         'pdf',
         'expire_at',
         'charge_id',

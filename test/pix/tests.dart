@@ -17,7 +17,5 @@ void testsPix(Gerencianet gn, String url) {
   testsCharge(gn);
   testsLocation(gn);
   testsPixPix(gn);
-  testsWebHook(
-    gn, url
-  );
+  testsWebHook(gn, url);
 }

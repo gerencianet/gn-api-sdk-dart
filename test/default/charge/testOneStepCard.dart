@@ -1,6 +1,6 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
-import '../../../example/default/charge/createChargeOneStepCard.dart';
+import '../../../example/default/charge/oneStepBillet.dart';
 import '../../credentials.dart';
 
 void main() async {

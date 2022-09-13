@@ -1,7 +1,7 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
 import '../../../example/pix/location/pixGenerateQRCode.dart';
-import '../../../example/pix/location/pixLocationCreate.dart';
+import '../../../example/pix/location/pixCreateLocation.dart';
 import '../../credentials.dart';
 
 void main() async {
@@ -11,7 +11,7 @@ void main() async {
 
 dynamic testPixGenerateQRCode(Gerencianet gn) async {
   test('pix location qrcode', () async {
-    dynamic loc = _verifyPixLocationCreate(await pixLocationCreate(gn));
+    dynamic loc = _verifyPixLocationCreate(await pixCreateLocation(gn));
     _verifyPixGenerateQRCode(await pixGenerateQRCode(gn, loc['id']));
   });
 }

@@ -31,5 +31,5 @@ dynamic createChargeOneStep(Gerencianet gn) async {
     }
   };
 
-  return await gn.call("createChargeOneStep", body: body);
+  return await gn.call("oneStep", body: body);
 }
