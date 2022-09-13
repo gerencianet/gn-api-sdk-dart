@@ -45,7 +45,7 @@ const Map<String, Map<String, dynamic>> CONSTANTS = {
       'getInstallments': {'route': '/installments', 'method': 'get'},
       'resendBillet': {'route': '/charge/:id/billet/resend', 'method': 'post'},
       'createChargeHistory': {'route': '/charge/:id/history', 'method': 'post'},
-      'createChargeOneStep': {'route': '/charge/one-step', 'method': 'post'},
+      'oneStep': {'route': '/charge/one-step', 'method': 'post'},
       'resendCarnet': {'route': '/carnet/:id/resend', 'method': 'post'},
       'resendParcel': {
         'route': '/carnet/:id/parcel/:parcel/resend',
@@ -116,7 +116,7 @@ const Map<String, Map<String, dynamic>> CONSTANTS = {
     'ENDPOINTS': {
       'authorize': {'route': '/oauth/token', 'method': 'post'},
       'pixConfigWebhook': {'route': '/v2/webhook/:chave', 'method': 'put'},
-      'pixGetWebhook': {'route': '/v2/webhook/:chave', 'method': 'get'},
+      'pixDetailWebhook': {'route': '/v2/webhook/:chave', 'method': 'get'},
       'pixListWebhook': {'route': '/v2/webhook', 'method': 'get'},
       'pixDeleteWebhook': {'route': '/v2/webhook/:chave', 'method': 'delete'},
       'pixCreateCharge': {'route': '/v2/cob/:txid', 'method': 'put'},
@@ -129,7 +129,7 @@ const Map<String, Map<String, dynamic>> CONSTANTS = {
         'route': '/v2/pix/:e2eId/devolucao/:id',
         'method': 'put'
       },
-      'pixDevolutionGet': {
+      'pixDetailDevolution': {
         'route': '/v2/pix/:e2eId/devolucao/:id',
         'method': 'get'
       },
@@ -139,19 +139,16 @@ const Map<String, Map<String, dynamic>> CONSTANTS = {
       'pixDetail': {'route': '/v2/pix/:e2eId', 'method': 'get'},
       'pixReceivedList': {'route': '/v2/pix', 'method': 'get'},
       'pixListReceived': {'route': '/v2/pix', 'method': 'get'},
-      'pixLocationCreate': {'route': '/v2/loc', 'method': 'post'},
-      'pixLocationList': {'route': '/v2/loc', 'method': 'get'},
-      'pixLocationGet': {'route': '/v2/loc/:id', 'method': 'get'},
-      'pixLocationDeleteTxid': {
-        'route': '/v2/loc/:id/txid',
-        'method': 'delete'
-      },
-      'pixCreateEvp': {'route': '/v2/gn/evp', 'method': 'post'},
-      'pixListEvp': {'route': '/v2/gn/evp', 'method': 'get'},
-      'pixDeleteEvp': {'route': '/v2/gn/evp/:chave', 'method': 'delete'},
-      'pixListBalance': {'route': '/v2/gn/saldo', 'method': 'get'},
-      'pixUpdateSettings': {'route': '/v2/gn/config', 'method': 'put'},
-      'pixListSettings': {'route': '/v2/gn/config', 'method': 'get'},
+      'pixCreateLocation': {'route': '/v2/loc', 'method': 'post'},
+      'pixListLocation': {'route': '/v2/loc', 'method': 'get'},
+      'pixDetailLocation': {'route': '/v2/loc/:id', 'method': 'get'},
+      'pixUnsetTxid': {'route': '/v2/loc/:id/txid', 'method': 'delete'},
+      'gnCreateEvp': {'route': '/v2/gn/evp', 'method': 'post'},
+      'gnListEvp': {'route': '/v2/gn/evp', 'method': 'get'},
+      'gnDeleteEvp': {'route': '/v2/gn/evp/:chave', 'method': 'delete'},
+      'gnDetailBalance': {'route': '/v2/gn/saldo', 'method': 'get'},
+      'gnUpdateSettings': {'route': '/v2/gn/config', 'method': 'put'},
+      'gnDetailSettings': {'route': '/v2/gn/config', 'method': 'get'},
       'pixCreateDueCharge': {'route': '/v2/cobv/:txid', 'method': 'put'},
       'pixUpdateDueCharge': {'route': '/v2/cobv/:txid', 'method': 'patch'},
       'pixDetailDueCharge': {'route': '/v2/cobv/:txid', 'method': 'get'},
