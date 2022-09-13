@@ -33,11 +33,11 @@ class Config {
     this.conf['timeout'] =
         options.containsKey('timeout') ? options['timeout'] : 30.0;
 
-    if (options.containsKey('pix_cert'))
-      this.conf['pixCert'] = options['pix_cert'];
+    if (options.containsKey('certificate'))
+      this.conf['certificate'] = options['certificate'];
 
-    if (options.containsKey('pix_private_key'))
-      this.conf['pixPrivateKey'] = options['pix_private_key'];
+    if (options.containsKey('private_key'))
+      this.conf['privateKey'] = options['private_key'];
 
     if (options.containsKey('partner_token'))
       this.conf['partnerToken'] = options['partner_token'];

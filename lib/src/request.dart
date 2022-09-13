@@ -14,8 +14,8 @@ class Request {
   Request() {
     if (this._config.conf.containsKey('pixCert')) {
       SecurityContext context = SecurityContext.defaultContext
-        ..useCertificateChain(this._config.conf['pixCert'], password: "")
-        ..usePrivateKey(this._config.conf['pixPrivateKey'], password: "");
+        ..useCertificateChain(this._config.conf['certificate'], password: "")
+        ..usePrivateKey(this._config.conf['privateKey'], password: "");
       this._client = new HttpClient(context: context);
     }
   }
