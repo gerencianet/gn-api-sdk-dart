@@ -15,8 +15,8 @@ dynamic testPaySubscription(Gerencianet gn, String paymentToken) async {
     dynamic plan = _verifyCreatePlan(await createPlan(gn));
     dynamic subscription = _verifyCreateSubscription(
         await createSubscription(gn, plan['data']['plan_id']));
-    _verifyPaySubscription(await paySubscription(
-        gn, subscription['data']['subscription_id'], paymentToken));
+    _verifyPaySubscription(
+        await paySubscription(gn, subscription['data']['subscription_id'], {}));
   });
 }
 

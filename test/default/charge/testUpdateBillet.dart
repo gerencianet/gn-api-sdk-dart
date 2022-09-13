@@ -31,7 +31,9 @@ dynamic _verifyPayCharge(dynamic response) {
       response['data'].keys.toList(),
       equals([
         'barcode',
+        'pix',
         'link',
+        'billet_link',
         'pdf',
         'expire_at',
         'charge_id',

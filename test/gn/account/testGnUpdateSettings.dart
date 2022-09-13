@@ -1,6 +1,6 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
-import '../../../example/gn/account/gnUpdateSettings.dart';
+import '../../../example/gn/account/pixUpdateSettings.dart';
 import '../../../example/gn/key/gnCreateEvp.dart';
 import '../../../example/gn/key/gnDeleteEvp.dart';
 import '../../credentials.dart';

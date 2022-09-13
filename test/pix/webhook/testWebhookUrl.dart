@@ -1,6 +1,6 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
-import '../../../example/pix/webhook/webhookUrl.dart';
+import '../../../example/pix/webhook/pixConfigWebhook.dart';
 import '../../../example/pix/webhook/pixDeleteWebhook.dart';
 import '../../../example/gn/key/gnCreateEvp.dart';
 import '../../../example/gn/key/gnDeleteEvp.dart';

@@ -1,6 +1,6 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
-import '../../../example/gn/account/gnDetailSettings.dart';
+import '../../../example/gn/account/pixListSettings.dart';
 import '../../credentials.dart';
 
 void main() async {
