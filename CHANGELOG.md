@@ -2,11 +2,9 @@
 
 - Initial release
 
-
 # 1.1.0
 
 - structure modification
-
 
 # 1.1.1
 
@@ -21,3 +19,9 @@
 
 - Updated: listing of all examples
 - Updated: bug fix
+
+# 1.3.0
+
+- Updated: API Pagamentos
+- Updated: API Open Finance
+- Updated: structure modification
