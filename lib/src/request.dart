@@ -12,7 +12,7 @@ class Request {
   Config _config = new Config();
 
   Request() {
-    if (this._config.conf.containsKey('pixCert')) {
+    if (this._config.conf.containsKey('certificate')) {
       SecurityContext context = SecurityContext.defaultContext
         ..useCertificateChain(this._config.conf['certificate'], password: "")
         ..usePrivateKey(this._config.conf['privateKey'], password: "");
