@@ -4,11 +4,11 @@ import '../../credentials.dart';
 
 void main() async {
   Gerencianet gn = Gerencianet(credentials);
-  dynamic response = await gnDeleteEvp(gn, "");
+  dynamic response = await pixDeleteEvp(gn, "");
   print(response);
 }
 
-dynamic gnDeleteEvp(Gerencianet gn, String key) async {
+dynamic pixDeleteEvp(Gerencianet gn, String key) async {
   Map<String, dynamic> params = {
     "chave": key,
   };

@@ -10,7 +10,7 @@ void main() async {
 
 dynamic testOneStepCard(Gerencianet gn, paymentToken) async {
   test('charge create one step card', () async {
-    _verifyCreateCharge(await createCharge(gn, paymentToken));
+    _verifyCreateCharge(await createChargeOneStep(gn, paymentToken));
   });
 }
 

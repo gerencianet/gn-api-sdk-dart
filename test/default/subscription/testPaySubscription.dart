@@ -7,10 +7,10 @@ import '../../credentials.dart';
 
 void main() async {
   Gerencianet gn = Gerencianet(CREDENTIALS_DEFAULT);
-  testPaySubscription(gn, "");
+  testPaySubscription(gn, {});
 }
 
-dynamic testPaySubscription(Gerencianet gn, String paymentToken) async {
+dynamic testPaySubscription(Gerencianet gn, dynamic card) async {
   test('subscription pay', () async {
     dynamic plan = _verifyCreatePlan(await createPlan(gn));
     dynamic subscription = _verifyCreateSubscription(

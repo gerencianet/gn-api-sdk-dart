@@ -1,9 +1,9 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
-import '../../../example/pix/location/pixDetailLocation.dart';
+import '../../../example/pix/location/pixLocationGet.dart';
 import '../../../example/pix/charge/pixCreateImmediateCharge.dart';
-import '../../../example/gn/key/gnCreateEvp.dart';
-import '../../../example/gn/key/gnDeleteEvp.dart';
+import '../../../example/gn/key/pixCreateEvp.dart';
+import '../../../example/gn/key/pixDeleteEvp.dart';
 import '../../credentials.dart';
 
 void main() async {
@@ -13,11 +13,11 @@ void main() async {
 
 dynamic testPixDetailLocation(Gerencianet gn) async {
   test('pix location get', () async {
-    dynamic key = _verifyPixCreateEvp(await gnCreateEvp(gn));
+    dynamic key = _verifyPixCreateEvp(await pixCreateEvp(gn));
     dynamic charge = _verifyPixCreateImmediateCharge(
         await pixCreateImmediateCharge(gn, key['chave']));
-    _verifyPixLocationGet(await pixDetailLocation(gn, charge['loc']['id']));
-    _verifyDixDeleteEvp(await gnDeleteEvp(gn, key['chave']));
+    _verifyPixLocationGet(await pixLocationGet(gn, charge['loc']['id']));
+    _verifyDixDeleteEvp(await pixDeleteEvp(gn, key['chave']));
   });
 }
 

@@ -1,6 +1,6 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
-import '../../../example/pix/location/pixCreateLocation.dart';
+import '../../../example/pix/location/pixLocationCreate.dart';
 import '../../credentials.dart';
 
 void main() async {
@@ -10,7 +10,7 @@ void main() async {
 
 dynamic testPixCreateLocation(Gerencianet gn) async {
   test('pix location create', () async {
-    _verifyPixLocationCreate(await pixCreateLocation(gn));
+    _verifyPixLocationCreate(await pixLocationCreate(gn));
   });
 }
 

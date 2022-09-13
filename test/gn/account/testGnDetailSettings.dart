@@ -10,7 +10,7 @@ void main() async {
 
 dynamic testGnDetailSettings(Gerencianet gn) async {
   test('pix account list settings', () async {
-    _verifyPixListSettings(await gnDetailSettings(gn));
+    _verifyPixListSettings(await pixListSettings(gn));
   });
 }
 

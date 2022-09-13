@@ -13,7 +13,7 @@ void main() async {
 dynamic testGnUpdateSettings(Gerencianet gn) async {
   test('pix account update settings', () async {
     dynamic key = _verifyPixCreateEvp(await gnCreateEvp(gn));
-    _verifyPixUpdateSettings(await gnUpdateSettings(gn, key['chave']));
+    _verifyPixUpdateSettings(await pixUpdateSettings(gn, key['chave']));
     _verifyDixDeleteEvp(await gnDeleteEvp(gn, key['chave']));
   });
 }

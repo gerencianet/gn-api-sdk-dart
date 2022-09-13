@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:encrypt/encrypt.dart';
 import 'package:pointycastle/asymmetric/api.dart';
-import 'config.dart';
 
 /// This class is responsible for carrying out requests that generate a valid Payment Token
 class PaymentToken {

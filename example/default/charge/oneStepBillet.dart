@@ -12,11 +12,11 @@ void main() async {
     "expiration_month": "",
     "expiration_year": ""
   };
-  dynamic response = await createCharge(gn, card);
+  dynamic response = await createChargeOneStep(gn, card);
   print(response);
 }
 
-dynamic createCharge(Gerencianet gn, Map<String, Object> card) async {
+dynamic createChargeOneStep(Gerencianet gn, Map<String, Object> card) async {
   dynamic paymentToken = await gn.call("paymentToken", body: card);
 
   dynamic body = {

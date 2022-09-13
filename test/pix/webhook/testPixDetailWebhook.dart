@@ -1,7 +1,7 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
 import '../../../example/pix/webhook/pixListWebhook.dart';
-import '../../../example/pix/webhook/pixDetailWebhook.dart';
+import '../../../example/pix/webhook/pixGetWebhook.dart';
 import '../../credentials.dart';
 
 void main() async {
@@ -14,7 +14,7 @@ dynamic testPixDetailWebhook(Gerencianet gn) async {
     dynamic list = _verifyPixListWebhook(await pixListWebhook(gn))['webhooks'];
     for (final item in list) {
       String key = item['chave'];
-      _verifyPixGetWebhook(await pixDetailWebhook(gn, key));
+      _verifyPixGetWebhook(await pixGetWebhook(gn, key));
       break;
     }
   });

@@ -1,6 +1,6 @@
 import 'package:gerencianet/gerencianet.dart';
 import 'package:test/test.dart';
-import '../../../example/gn/account/gnDetailBalance.dart';
+import '../../../example/gn/account/pixListBalance.dart';
 import '../../credentials.dart';
 
 void main() async {
@@ -10,7 +10,7 @@ void main() async {
 
 dynamic testGnDetailBalance(Gerencianet gn) async {
   test('pix account balance', () async {
-    _verifyPixListBalance(await gnDetailBalance(gn));
+    _verifyPixListBalance(await pixListBalance(gn));
   });
 }
 

@@ -10,7 +10,7 @@ void main() async {
 
 dynamic testOneStepBillet(Gerencianet gn) async {
   test('charge create one step billet', () async {
-    _verifyCreateCharge(await createCharge(gn));
+    _verifyCreateCharge(await createChargeOneStep(gn));
   });
 }
 
