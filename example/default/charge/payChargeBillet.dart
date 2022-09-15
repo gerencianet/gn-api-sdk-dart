@@ -13,11 +13,11 @@ dynamic payCharge(Gerencianet gn, int chargeId) async {
   dynamic payment = {
     "payment": {
       "banking_billet": {
-        "expire_at": "2021-12-12",
+        "expire_at": "2022-12-12",
         "customer": {
-          "name": "Gorbadoc Oldbuck",
+          "name": "Gorbadoc Oldbucks",
           "email": "oldbuck@gerencianet.com.br",
-          "cpf": "04267484171",
+          "cpf": "72992953008",
           "birth": "1977-01-15",
           "phone_number": "5144916523"
         }

@@ -10,6 +10,6 @@ void main() async {
 }
 
 dynamic createPlan(Gerencianet gn) async {
-  dynamic body = {'name': "My first plan ", 'repeats': 12, 'interval': 2};
+  dynamic body = {'name': "My first plan", 'repeats': 12, 'interval': 2};
   return await gn.call('createPlan', body: body);
 }

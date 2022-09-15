@@ -9,10 +9,12 @@ void main() async {
 }
 
 dynamic pixSend(Gerencianet gn) async {
+  dynamic params = {"idEnvio": 1};
+
   dynamic body = {
     'valor': '',
     'pagador': {'chave': ''},
     'favorecido': {'chave': ''}
   };
-  return await gn.call("pixSend", body: body);
+  return await gn.call("pixSend", body: body, params: params);
 }

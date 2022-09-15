@@ -9,5 +9,5 @@ void main() async {
 }
 
 dynamic gnListEvp(Gerencianet gn) async {
-  return await gn.call("gnListEvp");
+  return await gn.call("gnListEvp ");
 }

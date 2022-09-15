@@ -7,7 +7,10 @@ void main() async {
     'x-skip-mtls-checking': 'true',
   };
   Gerencianet gn = Gerencianet(credentials);
-  dynamic response = await pixConfigWebhook(gn, "", "");
+  dynamic response = await pixConfigWebhook(
+      gn,
+      "040fe73d-4b50-4a01-ae71-d70242b4cf58",
+      "https://pix.igorpedroso.dev/prod/webhook");
   print(response);
 }
 

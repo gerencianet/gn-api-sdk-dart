@@ -1,6 +1,6 @@
 name: gerencianet
 description: A dart library for integration with payment services provided by Gerencianet.
-version: 1.2.1
+version: 1.3.0
 homepage: https://github.com/gerencianet/gn-api-sdk-dart
 
 environment:
@@ -12,7 +12,6 @@ dependencies:
   pointycastle: ^3.2.0
   flutter:
     sdk: flutter
-
 
 dev_dependencies:
   test: ^1.17.1

@@ -7,36 +7,26 @@ import 'config.dart';
 
 class EndPoints {
   ApiRequest? _requester;
-  Map _endPoints = {};
-  dynamic config = {};
+  Config _config = new Config();
 
   EndPoints(Map options) {
-    this._requester = new ApiRequest(options);
-
-    this._endPoints = Config.get('ENDPOINTS');
-
-    this._endPoints = Config.isPix(options)
-        ? this._endPoints['PIX']
-        : this._endPoints['DEFAULT'];
-
-    this.config = Config.options(options);
+    this._config.set(options);
+    this._requester = new ApiRequest();
   }
 
   Future<dynamic> call(String endpoint,
       {Map<String, dynamic>? params,
       dynamic body,
       Map<String, String>? headers}) async {
-    return endpoint != "paymentToken"
-        ? await _kernelCall(endpoint, params: params, body: body)
-        : PaymentToken.generate(body, this.config);
+    return await _kernelCall(endpoint, params: params, body: body);
   }
 
   Future<dynamic> _kernelCall(String endpointName,
       {Map<String, dynamic>? params, dynamic body}) async {
-    if (this._endPoints[endpointName] == null)
-      throw new Exception("nonexistent endpoint");
+    dynamic endpoint = this._config.getEndpoint(endpointName);
 
-    dynamic endpoint = this._endPoints[endpointName];
+    if (endpointName == 'paymentToken')
+      return PaymentToken.generate(body, this._config.conf);
 
     String route = _getRoute(endpoint, params);
 

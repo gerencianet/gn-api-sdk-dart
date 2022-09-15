@@ -10,8 +10,8 @@ void main() async {
 
 dynamic pixListWebhook(Gerencianet gn) async {
   Map<String, dynamic> params = {
-    "inicio": "2021-01-31T16:01:35Z",
-    "fim": "2021-12-31T16:01:35Z"
+    "inicio": "2022-01-31T16:01:35Z",
+    "fim": "2022-12-31T16:01:35Z"
   };
   return await gn.call("pixListWebhook", params: params);
 }

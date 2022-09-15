@@ -4,11 +4,11 @@ import '../../credentials.dart';
 
 void main() async {
   Gerencianet gn = Gerencianet(credentials);
-  dynamic response = await gnUpdateSettings(gn, "");
+  dynamic response = await pixUpdateSettings(gn, "");
   print(response);
 }
 
-dynamic gnUpdateSettings(Gerencianet gn, String key) async {
+dynamic pixUpdateSettings(Gerencianet gn, String key) async {
   dynamic body = {
     'pix': {
       'receberSemChave': true,
@@ -22,5 +22,5 @@ dynamic gnUpdateSettings(Gerencianet gn, String key) async {
       }
     }
   };
-  return await gn.call('gnUpdateSettings', body: body);
+  return await gn.call('pixUpdateSettings', body: body);
 }

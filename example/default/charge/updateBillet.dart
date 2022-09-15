@@ -11,6 +11,6 @@ void main() async {
 
 dynamic updateBillet(Gerencianet gn, int chargeId) async {
   Map<String, dynamic> params = {'id': chargeId};
-  dynamic body = {"expire_at": "2021-12-12"};
+  dynamic body = {'expire_at': '2022-12-12'};
   return await gn.call('updateBillet', params: params, body: body);
 }

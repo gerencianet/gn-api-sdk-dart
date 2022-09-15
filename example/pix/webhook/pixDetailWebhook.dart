@@ -4,7 +4,8 @@ import '../../credentials.dart';
 
 void main() async {
   Gerencianet gn = Gerencianet(credentials);
-  dynamic response = await pixDetailWebhook(gn, "");
+  dynamic response =
+      await pixDetailWebhook(gn, "040fe73d-4b50-4a01-ae71-d70242b4cf58");
   print(response);
 }
 
