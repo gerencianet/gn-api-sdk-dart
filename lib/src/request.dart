@@ -72,14 +72,13 @@ class Request {
 
   void _addCerts() async {
     SecurityContext context = SecurityContext.defaultContext;
-
     final List<int> certificateChainBytes =
         (await rootBundle.load(this._config.conf['certificate']))
             .buffer
             .asInt8List();
     context.useCertificateChainBytes(certificateChainBytes);
     final List<int> keyBytes =
-        (await rootBundle.load(this._config.conf['privateKey']))
+        (await rootBundle.load(this._config.conf['certificate']))
             .buffer
             .asInt8List();
     context.usePrivateKeyBytes(keyBytes);
