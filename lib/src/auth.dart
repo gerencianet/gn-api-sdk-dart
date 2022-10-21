@@ -33,8 +33,7 @@ class Auth {
   authorize() async {
     Map endpoints = {'route': '/authorize', 'method': 'post'};
 
-    if (this._config.conf.containsKey('certificate') &&
-        this._config.conf.containsKey('privateKey'))
+    if (this._config.conf.containsKey('certificate'))
       endpoints = {'route': '/oauth/token', 'method': 'post'};
 
     dynamic requestOptions = {
