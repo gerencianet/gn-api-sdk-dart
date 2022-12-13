@@ -37,7 +37,7 @@ class _PaymentPageState extends State<PaymentPage> {
     'client_id': 'YOUR_CLIENT_ID',
     'client_secret': 'YOU_CLIENT_SECRET',
     'sandbox': false,
-    'pix_cert': '',
+    'certificate': '',
     'pix_private_key': ''
   };
   Gerencianet gerencianet;

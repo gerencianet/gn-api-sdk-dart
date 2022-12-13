@@ -133,8 +133,7 @@ const Map<String, Map<String, dynamic>> CONSTANTS = {
         'route': '/v2/pix/:e2eId/devolucao/:id',
         'method': 'get'
       },
-      'pixSend': {'route': '/v2/pix', 'method': 'post'},
-      'pixSendPut': {'route': '/v2/gn/pix/:idEnvio', 'method': 'put'},
+      'pixSend': {'route': '/v2/gn/pix/:idEnvio', 'method': 'put'},
       'pixSendList': {'route': '/v2/pix/:e2eId', 'method': 'get'},
       'pixDetail': {'route': '/v2/pix/:e2eId', 'method': 'get'},
       'pixReceivedList': {'route': '/v2/pix', 'method': 'get'},
