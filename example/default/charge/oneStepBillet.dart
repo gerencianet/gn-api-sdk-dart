@@ -27,22 +27,12 @@ dynamic createChargeOneStep(Gerencianet gn, Map<String, Object> card) async {
       {"name": "Default Shipping Cost", "value": 100}
     ],
     "payment": {
-      "credit_card": {
-        "installments": 1,
-        "payment_token": paymentToken['data']['payment_token'],
-        "billing_address": {
-          "street": "Av. JK",
-          "number": 909,
-          "neighborhood": "Bauxita",
-          "zipcode": "35400000",
-          "city": "Ouro Preto",
-          "state": "MG"
-        },
+      "banking_billet": {
+        "expire_at": "2024-12-12",
         "customer": {
           "name": "Gorbadoc Oldbuck",
           "email": "oldbuck@gerencianet.com.br",
           "cpf": "94271564656",
-          "birth": "1977-01-15",
           "phone_number": "5144916523"
         }
       }
